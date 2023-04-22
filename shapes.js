@@ -15,7 +15,7 @@ class Triangle extends Shape {
 
 class Square extends Shape {
     render(){
-        return `<rect x="400" y="100" width="400" height="200"
+        return `<rect x="400" y="400" width="400" height="400"
         fill="${this.color}"/>`
 }
 }
