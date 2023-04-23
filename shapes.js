@@ -3,6 +3,9 @@ class Shape {
     constructor() {
         this.color = ""; //leave empty user input
     }
+    setColor(newColor){
+        this.color = newColor;
+    }
 }
 
 //Inheriting properties from parent
@@ -15,8 +18,7 @@ class Triangle extends Shape {
 
 class Square extends Shape {
     render(){
-        return `<rect x="400" y="400" width="400" height="400"
-        fill="${this.color}"/>`
+        return `<rect x="400" y="400" width="400" height="400" fill="${this.color}"/>`
 }
 }
 

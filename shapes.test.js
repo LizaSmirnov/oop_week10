@@ -5,10 +5,9 @@ const { Triangle, Square, Circle } = require("./shapes.js");
 describe("Triangle test", () => {
   test("triangle shape with red color backround", () => {
     const shape = new Triangle();
-    var color = ('red')
-    shape.setColor(color);
+    shape.setColor('red');
     expect(shape.render()).toEqual(
-      `<polygon points="50 15, 100 100, 0 100" fill ="${color}" />`
+      `<polygon points="50 15, 100 100, 0 100" fill ="red" />`
     );
   });
 });
@@ -18,7 +17,7 @@ describe("Square test", () => {
     const shape = new Square();
     shape.setColor("green");
     expect(shape.render()).toEqual(
-      `<rect x="400" y="400" width="400" height="400"fill="green"/>`
+      `<rect x="400" y="400" width="400" height="400" fill="green"/>`
     );
   });
 });
