@@ -3,31 +3,25 @@ const { Triangle, Square, Circle } = require("./shapes.js");
 //use jest to test out rednering for shapes and colors
 //needs to turn scripts test to "jest"
 describe("Triangle test", () => {
-  test("triangle shape with red color backround", () => {
-    const shape = new Triangle();
-    shape.setColor('red');
-    expect(shape.render()).toEqual(
-      `<polygon points="50 15, 100 100, 0 100" fill ="red" />`
+  test("Triangle shape with red color backround and yellow text svg.", () => {
+    const shape = new Triangle('red', 'svg', 'yellow');
+    expect(shape.render()).toEqual(`<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg"><polygon points="100, 15 200, 200 0, 200" fill="red"/><text x="100" y="185" font-size="70" text-anchor="middle" fill="yellow">svg</text></svg>`
     );
   });
 });
 
 describe("Square test", () => {
-  test("square shape with green backround", () => {
-    const shape = new Square();
-    shape.setColor("green");
-    expect(shape.render()).toEqual(
-      `<rect x="400" y="400" width="400" height="400" fill="green"/>`
+  test("Square shape with green backround and orange text sss", () => {
+    const shape = new Square('green', 'sss', 'orange');
+    expect(shape.render()).toEqual(`<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" fill="green"/><text x="100" y="125" font-size="70" text-anchor="middle" fill="orange">sss</text></svg>`
     );
   });
 });
 
 describe("Circle test", () => {
-  test("shape will be circle with yellow backround", () => {
-    const shape = new Circle();
-    shape.setColor("yellow");
-    expect(shape.render()).toEqual(
-      `<circle cx="150" cy="100" r="80" fill="yellow" />`
+  test("Shape will be circle with yellow backround and white text cat", () => {
+    const shape = new Circle('yellow','cat', 'white');
+    expect(shape.render()).toEqual(`<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg"><circle cx="150" cy="100" r="100" fill="yellow" /><text x="150" y="125" font-size="70" text-anchor="middle" fill="white">cat</text></svg>`
     );
   });
 });

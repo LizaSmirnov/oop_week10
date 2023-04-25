@@ -17,11 +17,11 @@ const questions = [
         type: "list",
         message: "Please choose one of the following shapes",
         name: "shape",
-        choices: ["triangle", "square", "circle"],
+        choices: ["Triangle", "Square", "Circle"],
         },
         {
-        type: "input",
-        message: "Please enter a color keyword or hexiadecimal number for your text",
+        type: "list",
+        message: "Please choose either a color keyword or hexiadecimal number for your text",
         name: "textColorChoice",
         choices: ["color keyword", "hexidecimal number"],
         },
@@ -30,17 +30,9 @@ const questions = [
         message: "Please enter hexidecimal number",
         name: "textColor",
         when: (answers) => {
-            if(answers.textColorChoice === 'hexidecimal'){
-            return true;
-          }
-          return false;
-        },
-          validate: (answer) => {
-          const hex = "^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$";
-          if(!answers.match(hex)){
-            return console.log('<a href="http://www.example.com"> Please enter valid hex number. If need guidence please click on the link</a>')
-          }
-          return true;
+            if(answers.textColorChoice === 'hexidecimal number'){
+                return true;
+            }
         }
         },
         {
@@ -51,56 +43,34 @@ const questions = [
           if(answers.textColorChoice === 'color keyword'){
           return true;
         }
-        return false;
-      },
-      validate: (answer) => {
-        var isColor = new Option().style;
-        if(!answers.match(isColor)){
-          return console.log('Please enter valid color keyword...just google it.')
         }
-        return true;
-      }
       },
         {
-        type: "input",
-        message: "Please enter a color keyword or hexiadecimal number for your shape's color",
-        name: "shapeColor",
+        type: "list",
+        message: "Please choose using a color keyword or hexiadecimal number for your shape's color",
+        name: "shapeColorChoice",
         choices: ["color keyword", "hexidecimal number"],
         },
         {
         type: "input",
         message: "Please enter hexidecimal number",
-        name: "textColor",
+        name: "shapeColor",
           when: (answers) => {
-            if(answers.textColorChoice === 'hexidecimal'){
+            if(answers.textColorChoice === 'hexidecimal number'){
             return true;
           }
-          return false;
-        },
-        validate: (answer) => {
-          const hex = "^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$";
-          if(!answers.match(hex)){
-            return console.log('<a href="http://www.example.com"> Please enter valid hex number. If need guidence please click on the link</a>')
-          }
-          return true;
         }
         },
         {
         type: "input",
         message: "Please enter color keyword",
-        name: "textColor",
+        name: "shapeColor",
         when: (answers) => {
           if(answers.textColorChoice === 'color keyword'){
           return true;
         }
-        return false;
-      },
-      validate: (answer) => {
-        var isColor = new Option().style;
-        if(!answers.match(isColor)){
-          return console.log('Please enter valid color keyword...just google it.')
-        }
-        return true;
-      }
-      }
+    }
+}
 ]
+
+module.exports = questions;
